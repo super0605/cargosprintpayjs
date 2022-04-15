@@ -81,20 +81,46 @@ function renderModal() {
   });
 }
 
-function loadModal() {
-  const id = setInterval(() => {
-    if (document.querySelector(".with-sprintpay__button")) {
-      console.log("Added EventListener for sprintpay", new Date.now());
-      document
-        .querySelector(".with-sprintpay__button")
-        .addEventListener("click", (event) => {
-          console.log("Added EventListener for sprintpay", new Date.now());
-          // render the modal
-          renderModal();
-          clearInterval(id);
-        });
+function findElement(selector) {
+  return new Promise((resolve) => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
     }
-  }, 1000);
+    const observer = new MutationObserver((mutations) => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+    });
+  });
+}
+
+async function loadModal() {
+  const button = await findElement(".with-sprintpay__button");
+  if (button) {
+    button.addEventListener("click", (event) => {
+      console.log("Added EventListener for sprintpay");
+      // render the modal
+      renderModal();
+    });
+  }
+  // const id = setInterval(() => {
+  //   if (document.querySelector(".with-sprintpay__button")) {
+  //     console.log("Added EventListener for sprintpay", new Date.now());
+  //     document
+  //       .querySelector(".with-sprintpay__button")
+  //       .addEventListener("click", (event) => {
+  //         console.log("Added EventListener for sprintpay", new Date.now());
+  //         // render the modal
+  //         renderModal();
+  //         clearInterval(id);
+  //       });
+  //   }
+  // }, 1000);
 
   // document.addEventListener("DOMContentLoaded", () => {
   //   document
