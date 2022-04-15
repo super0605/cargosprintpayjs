@@ -1,5 +1,6 @@
 // https://github.com/super0605/cargosprintpayjs/blob/master/with-sprintpay.js
-// https://cdn.jsdelivr.net/gh/super0605/cargosprintpayjs/dist/with-sprintpay.js
+// https://cdn.jsdelivr.net/gh/super0605/cargosprintpayjs/with-sprintpay.js
+// https://codesandbox.io/s/simple-example-forked-kei97e?file=/public/index.html
 
 // Your CSS as text
 var styles = `
@@ -9,8 +10,8 @@ var styles = `
     width: 100vw;
     height: 100vh;
     position: absolute;
-    // background: rgba(0, 0, 0, 0.5);
-    background: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    // background: #fff;
   }
 
   .with-sprintpay__modal-child {
@@ -108,29 +109,6 @@ async function loadModal() {
       renderModal();
     });
   }
-  // const id = setInterval(() => {
-  //   if (document.querySelector(".with-sprintpay__button")) {
-  //     console.log("Added EventListener for sprintpay", new Date.now());
-  //     document
-  //       .querySelector(".with-sprintpay__button")
-  //       .addEventListener("click", (event) => {
-  //         console.log("Added EventListener for sprintpay", new Date.now());
-  //         // render the modal
-  //         renderModal();
-  //         clearInterval(id);
-  //       });
-  //   }
-  // }, 1000);
-
-  // document.addEventListener("DOMContentLoaded", () => {
-  //   document
-  //     .querySelector(".with-sprintpay__button")
-  //     .addEventListener("click", (event) => {
-  //       console.log("Added EventListener for sprintpay", new Date.now());
-  //       // render the modal
-  //       renderModal();
-  //     });
-  // });
 }
 
 function loadIframePostMsg() {
