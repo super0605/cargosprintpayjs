@@ -1,3 +1,6 @@
+// https://github.com/super0605/cargosprintpayjs/blob/master/with-sprintpay.js
+// https://cdn.jsdelivr.net/gh/super0605/cargosprintpayjs/dist/with-sprintpay.js
+
 // Your CSS as text
 var styles = `
   .with-sprintpay__modal {
@@ -82,6 +85,7 @@ function loadModal() {
     document
       .querySelector(".with-sprintpay__button")
       .addEventListener("click", (event) => {
+        console.log("Added EventListener for sprintpay", new Date.now())
         // render the modal
         renderModal();
       });
