@@ -84,6 +84,7 @@ function renderModal() {
 function loadModal() {
   const id = setInterval(() => {
     if (document.querySelector(".with-sprintpay__button")) {
+      console.log("Added EventListener for sprintpay", new Date.now());
       document
         .querySelector(".with-sprintpay__button")
         .addEventListener("click", (event) => {
