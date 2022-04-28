@@ -174,12 +174,19 @@ function loadIframePostMsg() {
 
         removeModal();
 
+        console.log("00000000000000000 ========================>", accessToken)
+        
+        console.log("11111000000000000000000001111111 ========================>", isRedirect)
+        console.log("111111111111 ========================>", callbackUrl)
+
         if (isRedirect === "true") {
+          console.log("22222222222222222 ========================>", `${callbackUrl}?sprintpay_token=${accessToken}`)
           // For the 3rd party website
           window.location.replace(
             `${callbackUrl}?sprintpay_token=${accessToken}`
           );
         } else {
+          console.log("333333333333333333 ========================>", callbackUrl)
           // ajax call to sent token
           sendToken(callbackUrl, accessToken);
         }
